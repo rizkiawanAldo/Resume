@@ -3,7 +3,39 @@
    ============================================================ */
 
 document.addEventListener('DOMContentLoaded', () => {
-    // ── Deck Elements & State ─────────────────────────────────
+
+    // ── Theme Toggle ──────────────────────────────────────────
+    const themeToggle = document.getElementById('theme-toggle');
+    const iconSun = document.getElementById('theme-icon-sun');
+    const iconMoon = document.getElementById('theme-icon-moon');
+
+    // Retrieve saved theme or default to light
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    document.body.setAttribute('data-theme', savedTheme);
+    updateThemeIcons(savedTheme);
+
+    if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = document.body.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            document.body.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeIcons(newTheme);
+        });
+    }
+
+    function updateThemeIcons(theme) {
+        if (!iconSun || !iconMoon) return;
+        if (theme === 'dark') {
+            iconSun.style.display = 'block';
+            iconMoon.style.display = 'none';
+        } else {
+            iconSun.style.display = 'none';
+            iconMoon.style.display = 'block';
+        }
+    }
+
+    // ── Intersection Observer for animations ─────────────────────────────────
     const slides = Array.from(document.querySelectorAll('.slide'));
     const navItems = document.querySelectorAll('.nav-item');
     const dots = document.querySelectorAll('.dot');
@@ -42,8 +74,12 @@ document.addEventListener('DOMContentLoaded', () => {
             if (i === currentSlide) {
                 slide.classList.add('active');
                 slide.scrollTop = 0;
+                // Programmatically focus the slide so arrow keys scroll it immediately
+                slide.setAttribute('tabindex', '-1');
+                setTimeout(() => slide.focus({ preventScroll: true }), 50);
             } else {
                 slide.classList.remove('active');
+                slide.removeAttribute('tabindex');
             }
         });
 
@@ -104,11 +140,10 @@ document.addEventListener('DOMContentLoaded', () => {
     document.addEventListener('keydown', (e) => {
         if (['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName)) return;
         if (document.getElementById('lightbox-modal').classList.contains('open')) return;
-        if (document.getElementById('cli-modal').classList.contains('open')) return;
 
-        if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === 'PageDown') {
+        if (e.key === 'ArrowRight') {
             goToSlide(currentSlide + 1);
-        } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp' || e.key === 'PageUp') {
+        } else if (e.key === 'ArrowLeft') {
             goToSlide(currentSlide - 1);
         }
     });

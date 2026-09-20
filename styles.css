@@ -5,10 +5,56 @@
 
 /* ── Custom Properties: Obsidian Theme ──────────────────── */
 :root {
+  /* LIGHT THEME (DEFAULT) */
+  --bg-canvas: #f8fafc;
+  --bg-card: #ffffff;
+  --bg-subtle: #f1f5f9;
+  --bg-dark: #e2e8f0;
+  --bg-header: rgba(248, 250, 252, 0.85);
+
+  --text-main: #0f172a;
+  --text-body: #334155;
+  --text-muted: #64748b;
+  --text-light: #94a3b8;
+
+  --gold: #d97706;
+  --gold-hover: #b45309;
+  --gold-light: rgba(217, 119, 6, 0.12);
+  --gold-border: rgba(217, 119, 6, 0.2);
+
+  --emerald: #059669;
+  --emerald-light: rgba(5, 150, 105, 0.12);
+  --emerald-border: rgba(5, 150, 105, 0.2);
+
+  --cyan: #0891b2;
+  --cyan-light: rgba(8, 145, 178, 0.12);
+
+  --border: #e2e8f0;
+  --border-hover: #cbd5e1;
+
+  --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.08);
+  --shadow-glow: 0 0 20px rgba(217, 119, 6, 0.15);
+
+  --font-heading: 'Space Grotesk', -apple-system, sans-serif;
+  --font-body: 'Inter', -apple-system, sans-serif;
+  --font-code: 'JetBrains Mono', monospace;
+
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-full: 9999px;
+
+  --header-height: 64px;
+  --dock-height: 60px;
+}
+
+[data-theme="dark"] {
   --bg-canvas: #0b0f19;
   --bg-card: #131b2e;
   --bg-subtle: #1e293b;
   --bg-dark: #070a10;
+  --bg-header: rgba(11, 15, 25, 0.92);
 
   --text-main: #f8fafc;
   --text-body: #cbd5e1;
@@ -30,21 +76,9 @@
   --border: #1e293b;
   --border-hover: #334155;
 
-  --font-heading: 'Space Grotesk', -apple-system, sans-serif;
-  --font-body: 'Inter', -apple-system, sans-serif;
-  --font-code: 'JetBrains Mono', monospace;
-
   --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.3);
   --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.4);
   --shadow-glow: 0 0 20px rgba(245, 158, 11, 0.2);
-
-  --radius-sm: 6px;
-  --radius-md: 10px;
-  --radius-lg: 16px;
-  --radius-full: 9999px;
-
-  --header-height: 64px;
-  --dock-height: 60px;
 }
 
 /* ── Reset & Baseline ────────────────────────────────────── */
@@ -79,7 +113,7 @@ body {
   right: 0;
   height: var(--header-height);
   z-index: 100;
-  background: rgba(11, 15, 25, 0.92);
+  background: var(--bg-header);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--border);
@@ -267,7 +301,7 @@ button * {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   opacity: 0;
   visibility: hidden;
   transform: translateY(24px) scale(0.98);
@@ -283,10 +317,14 @@ button * {
   z-index: 10;
 }
 
+.slide:focus {
+  outline: none;
+}
+
 .slide-content {
   width: 100%;
   max-width: 980px;
-  margin: 0 auto;
+  margin: auto;
 }
 
 /* ── Typography & Headers ────────────────────────────────── */
@@ -318,6 +356,18 @@ button * {
 }
 
 /* ── SLIDE 1: INTRO HERO ─────────────────────────────────── */
+.hero-profile-img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--border);
+  margin-bottom: 24px;
+  box-shadow: var(--shadow-sm);
+  background: var(--bg-card);
+  /* Fallback */
+}
+
 .hero-top-bar {
   display: flex;
   align-items: center;

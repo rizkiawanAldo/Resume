@@ -24,7 +24,7 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 
-<body class="theme-obsidian">
+<body data-theme="light">
 
   <!-- ── Top Header Navigation ───────────────────────── -->
   <header id="deck-header">
@@ -50,6 +50,25 @@
       </nav>
 
       <div class="header-tools">
+        <button id="theme-toggle" aria-label="Toggle Theme" title="Toggle Dark/Light Mode"
+          style="background:none; border:none; color:var(--text-main); cursor:pointer; padding:8px; display:flex; align-items:center;">
+          <svg id="theme-icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg id="theme-icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
 
         <div class="slide-counter">
           <span id="current-slide">01</span> <span class="counter-sep">/</span> <span id="total-slides">07</span>
@@ -65,6 +84,8 @@
       <!-- ── SLIDE 1: INTRO ───────────────────────────────── -->
       <section class="slide active" id="intro" data-index="0">
         <div class="slide-content">
+          <img src="images/profile/DSC08937_optimized_1000.jpg" alt="Aldo Rizkiawan" class="hero-profile-img" />
+
           <div class="hero-top-bar">
             <div class="badge-pill amber">
               <span class="pulse-dot-amber"></span> Software Engineer @ Grab · Jakarta, ID
@@ -197,15 +218,18 @@
               </div>
               <ul class="job-list">
                 <li><strong>Ride Cover Plus (PH Insurance):</strong> Led full engineering lifecycle to launch Grab's
-                  Ride Cover Plus in the Philippines, managing cross-team delivery and insurer APIs. Achieved
-                  <strong>~31k transactions in first 2 weeks</strong>.
+                  Ride Cover Plus in the Philippines. Managed cross-team delivery (PMs, Data Analysts) and integrated
+                  3rd-party insurer APIs. Achieved
+                  <strong>~31,000 transactions in the first 2 weeks</strong>.
                 </li>
                 <li><strong>Company-wide Tech Documentation Site:</strong> Founding engineer of Grab's technical
-                  documentation hub. Migrated docs to Hugo SSG format with fast AI search &amp; MCP integration.</li>
+                  documentation hub. Prepared migration strategies and infrastructure, moving all docs to Hugo SSG with
+                  fast AI search &amp; MCP integration for daily company-wide use.</li>
                 <li><strong>Content &amp; Dev Sync Automation:</strong> Built auto-sync workflow between content
-                  managers and frontend platforms, eliminating key translation review cycles.</li>
+                  managers and frontend platforms. Standardized translation keys globally, eliminating cross-team
+                  friction and manual review cycles.</li>
                 <li><strong>Tech Service Entity Catalog:</strong> Contributed to service relationship mapping, cost
-                  metrics, and API documentation catalog across engineering teams.</li>
+                  metrics, API ownership, and documentation catalogs across Grab's engineering teams.</li>
               </ul>
             </div>
 
@@ -228,14 +252,20 @@
                 <div class="job-badge">Sep 2021 — Apr 2024 · Jakarta</div>
               </div>
               <ul class="job-list">
-                <li><strong>Real-Time Fraud Detection Engine:</strong> Built rule-based fraud detection pipeline using
+                <li><strong>Account Security Core:</strong> Key member of the Account Security Team, safeguarding the
+                  ecosystem from account takeovers, social engineering, and unauthorized access.</li>
+                <li><strong>Real-Time Fraud Detection Engine:</strong> Conceptualized and built rule-based fraud
+                  detection pipeline using
                   Golang, Redis, PostgreSQL, NSQ, and Neo4j graph database. Prevented system abuse, resulting in
-                  <strong>~120M IDR monthly savings</strong>.
+                  <strong>~120M IDR monthly savings</strong> for Tokopedia users.
                 </li>
-                <li><strong>Fraud Admin Console:</strong> Built ReactJS dashboard for risk analysts, reducing manual
+                <li><strong>Fraud Admin Console:</strong> Built user-friendly ReactJS dashboard for risk analysts and
+                  business teams to evaluate rule performance, reducing manual
                   review time by <strong>90%</strong>.</li>
-                <li><strong>Incident Reporting Service:</strong> Developed incident aggregation service in Golang &amp;
-                  SMTP for benchmark MTTA/MTTR leadership reporting.</li>
+                <li><strong>Incident Reporting Service:</strong> Developed incident aggregation service (PagerDuty/DB)
+                  in Golang &amp;
+                  SMTP, providing crucial benchmark leadership reporting for MTTA &amp; MTTR across all Tokopedia
+                  tribes.</li>
               </ul>
             </div>
 
@@ -249,10 +279,12 @@
                 <div class="job-badge">Jun 2019 — Sep 2021 · Jakarta</div>
               </div>
               <ul class="job-list">
-                <li><strong>Paperless Document Workflow:</strong> Engineered approval and delegation system replacing
-                  physical document handoffs across bank divisions.</li>
-                <li><strong>EximBank x PLN Portal:</strong> Developed web application managing export/import insurance
-                  workflows between EximBank and PLN.</li>
+                <li><strong>Paperless Document Workflow:</strong> Engineered web application for document handling,
+                  approval, and delegation, significantly boosting workflow efficiency by eliminating physical
+                  paperwork.</li>
+                <li><strong>EximBank x PLN Portal:</strong> Designed and developed a web application to facilitate
+                  export/import insurance
+                  processes and workflows between EximBank and PLN.</li>
               </ul>
             </div>
 
@@ -604,8 +636,7 @@
   <footer id="deck-dock">
     <div class="dock-inner">
       <div class="dock-shortcut-hint">
-        <span class="kbd">←</span> <span class="kbd">→</span> navigate slides &nbsp;·&nbsp; <span
-          class="kbd">Ctrl</span>+<span class="kbd">K</span> terminal
+        <span class="kbd">←</span> <span class="kbd">→</span> navigate slides &nbsp;·&nbsp;
       </div>
 
       <div class="dock-dots" id="dock-dots">
