@@ -4,320 +4,658 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Aldo Rizkiawan — Software Engineer</title>
+  <title>Aldo Rizkiawan — Backend Architect &amp; Visual Creator</title>
   <meta name="description"
-    content="Full-Stack & Backend Software Engineer with 7+ years of experience in distributed microservices, fraud risk management, and enterprise platform engineering." />
-  <meta property="og:title" content="Aldo Rizkiawan — Software Engineer" />
-  <meta property="og:description" content="Full-Stack & Backend Software Engineer — Grab, Tokopedia, EximBank" />
+    content="Personal portfolio & résumé of Aldo Rizkiawan. Full-Stack & Backend Software Engineer at Grab, Tokopedia, EximBank. Geophysics graduate & founder of Xenosumedia." />
+  <meta property="og:title" content="Aldo Rizkiawan — Backend Architect & Visual Creator" />
+  <meta property="og:description"
+    content="Distributed Systems, Fraud Risk Engines, Developer Platforms & Photography." />
+  <meta property="og:type" content="website" />
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>" />
+
+  <!-- Google Fonts: Space Grotesk & Inter & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    rel="stylesheet" />
+
   <link rel="stylesheet" href="styles.css" />
 </head>
 
-<body>
+<body class="theme-obsidian">
 
-  <!-- ── Navigation ──────────────────────────────────────── -->
-  <nav id="navbar">
-    <div class="nav-inner">
-      <a href="#hero" class="nav-logo">Aldo Rizkiawan</a>
-      <ul class="nav-links">
-        <li><a href="#summary">About</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#education">Education</a></li>
-        <li><a href="#projects">Projects</a></li>
-      </ul>
-    </div>
-  </nav>
+  <!-- ── Top Header Navigation ───────────────────────── -->
+  <header id="deck-header">
+    <div class="header-inner">
+      <div class="brand">
+        <a href="#intro" class="slide-link-logo" data-slide="0">
+          <span class="brand-avatar">AR</span>
+          <div class="brand-titles">
+            <span class="brand-name">Aldo Rizkiawan</span>
+            <span class="brand-tag">Geophysics → Systems</span>
+          </div>
+        </a>
+      </div>
 
-  <!-- ── Hero ────────────────────────────────────────────── -->
-  <section id="hero">
-    <div class="container">
-      <div class="hero-content">
-        <h1 class="hero-name">Aldo Rizkiawan</h1>
+      <nav class="deck-nav">
+        <a href="#intro" class="nav-item active" data-slide="0">Intro</a>
+        <a href="#about" class="nav-item" data-slide="1">About</a>
+        <a href="#experience" class="nav-item" data-slide="2">Experience</a>
+        <a href="#summary" class="nav-item" data-slide="3">Capabilities</a>
+        <a href="#projects" class="nav-item" data-slide="4">Projects</a>
+        <a href="#photography" class="nav-item" data-slide="5">Photography</a>
+        <a href="#contact" class="nav-item" data-slide="6">Contact</a>
+      </nav>
 
-        <p class="hero-title">Full-Stack &amp; Backend Software Engineer</p>
+      <div class="header-tools">
 
-        <div class="divider"></div>
-
-        <div class="hero-contact">
-          <a href="tel:+6281231566796" class="contact-link" id="contact-phone">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path
-                d="M22 16.92v3a2 2 0 01-2.18 2 19.87 19.87 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.87 19.87 0 01-3.07-8.68A2 2 0 012 .99h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" />
-            </svg>
-            +62 812-3156-6796
-          </a>
-
-          <a href="mailto:rizkiawan.aldo@gmail.com" class="contact-link" id="contact-email">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-              <polyline points="22,6 12,13 2,6" />
-            </svg>
-            rizkiawan.aldo@gmail.com
-          </a>
-
-          <a href="https://www.linkedin.com/in/rizkiawanaldo" target="_blank" rel="noopener" class="contact-link"
-            id="contact-linkedin">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z" />
-              <rect x="2" y="9" width="4" height="12" />
-              <circle cx="4" cy="4" r="2" />
-            </svg>
-            linkedin/rizkiawanaldo
-          </a>
-
-          <a href="https://github.com/rizkiawanAldo" target="_blank" rel="noopener" class="contact-link"
-            id="contact-github">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path
-                d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22" />
-            </svg>
-            github/rizkiawanAldo
-          </a>
-
-          <span class="contact-link">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
-              <circle cx="12" cy="10" r="3" />
-            </svg>
-            Jakarta, Indonesia
-          </span>
-        </div>
-
-        <div class="hero-cta">
-          <a href="mailto:rizkiawan.aldo@gmail.com" class="btn-primary" id="cta-contact">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round">
-              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-              <polyline points="22,6 12,13 2,6" />
-            </svg>
-            Get in Touch
-          </a>
-          <a href="https://github.com/rizkiawanAldo" target="_blank" rel="noopener" class="btn-secondary"
-            id="cta-github">View GitHub</a>
+        <div class="slide-counter">
+          <span id="current-slide">01</span> <span class="counter-sep">/</span> <span id="total-slides">07</span>
         </div>
       </div>
     </div>
-  </section>
+  </header>
 
-  <!-- ── Summary ─────────────────────────────────────────── -->
-  <section id="summary">
-    <div class="container">
-      <p class="section-label">About Me</p>
-      <h2 class="section-title">Professional Summary</h2>
+  <!-- ── Main Presentation Slides Deck ────────────────────── -->
+  <main id="deck-container">
+    <div class="slides-track" id="slides-track">
 
-      <div class="summary-grid reveal-group">
-        <div class="summary-card reveal" id="summary-card-1">
-          <h3>🚀 Experience</h3>
-          <p>7 years of Full-Stack &amp; Backend experience. Specialized in distributed microservices, fraud risk
-            management, and enterprise platform engineering across Indonesia's top tech companies.</p>
-        </div>
+      <!-- ── SLIDE 1: INTRO ───────────────────────────────── -->
+      <section class="slide active" id="intro" data-index="0">
+        <div class="slide-content">
+          <div class="hero-top-bar">
+            <div class="badge-pill amber">
+              <span class="pulse-dot-amber"></span> Software Engineer @ Grab · Jakarta, ID
+            </div>
+          </div>
 
-        <div class="summary-card reveal" id="summary-card-2">
-          <h3>🎯 Leadership</h3>
-          <p>Proven track record of leading end-to-end launches of regional fintech &amp; insurance features and
-            company-wide developer documentation hubs across multiple teams and stakeholders.</p>
-        </div>
+          <h1 class="hero-headline">
+            Architecting resilient backend systems <span class="accent-text-gold">&amp; developer tools.</span>
+          </h1>
 
-        <div class="summary-card reveal" id="summary-card-collab">
-          <h3>🌏 Collaboration</h3>
-          <p>Team player who collaborates globally, communicates across domains, and solves problems effectively and
-            adaptively in cross-functional environments.</p>
-        </div>
+          <p class="hero-subtext">
+            I bridge physical systems thinking with high-throughput backend microservices, fraud risk engines, and
+            developer platform tooling across Southeast Asia.
+          </p>
 
-        <div class="summary-card reveal" id="summary-card-stack">
-          <h3>⚡ Core Stack</h3>
-          <div class="tech-tags">
-            <span class="tag">Golang</span>
-            <span class="tag">C#</span>
-            <span class="tag">ASP.NET</span>
-            <span class="tag">Java Spring</span>
-            <span class="tag">Python</span>
-            <span class="tag">ReactJS</span>
-            <span class="tag">AngularJS</span>
-            <span class="tag">Node.js</span>
-            <span class="tag">Kubernetes</span>
-            <span class="tag">AWS</span>
-            <span class="tag">GCP</span>
-            <span class="tag">Redis</span>
-            <span class="tag">PostgreSQL</span>
-            <span class="tag">Docker</span>
-            <span class="tag">Graph DB</span>
+          <div class="hero-tags">
+            <span class="hero-tag code-font">&lt;Golang / C# / Python&gt;</span>
+            <span class="hero-tag">🛡️ Real-Time Fraud Engine</span>
+            <span class="hero-tag">📷 Visuals @ Xenosumedia</span>
+          </div>
+
+          <div class="hero-actions">
+            <button type="button" class="btn btn-primary next-slide-btn" data-target="1">
+              Explore Career &amp; Work <span class="btn-arrow">→</span>
+            </button>
+
+            <a href="https://github.com/rizkiawanAldo" target="_blank" rel="noopener" class="btn btn-outline">
+              GitHub ↗
+            </a>
           </div>
         </div>
-      </div>
+      </section>
+
+      <!-- ── SLIDE 2: ABOUT ME ────────────────────────────── -->
+      <section class="slide" id="about" data-index="1">
+        <div class="slide-content">
+          <div class="section-kicker">02. Mindset &amp; Journey</div>
+          <h2 class="slide-title">From Physical Signals to Data Streams</h2>
+
+          <!-- Signal Wave Graphical Banner -->
+          <div class="signal-banner">
+            <div class="signal-wave-svg">
+              <svg viewBox="0 0 800 60" preserveAspectRatio="none">
+                <path d="M 0 30 Q 50 5, 100 30 T 200 30 T 300 55 T 400 10 T 500 45 T 600 20 T 700 35 T 800 30"
+                  fill="none" stroke="url(#wave-gradient)" stroke-width="2.5" />
+                <defs>
+                  <linearGradient id="wave-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="#f59e0b" />
+                    <stop offset="50%" stop-color="#10b981" />
+                    <stop offset="100%" stop-color="#6366f1" />
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+            <span class="signal-caption">Seismic Wave Modeling → Real-Time Microservice Message Streams</span>
+          </div>
+
+          <div class="about-grid">
+            <div class="about-text">
+              <p>
+                I'm <strong>Aldo Rizkiawan</strong>. My engineering path began in <strong>Geophysics Engineering at ITS
+                  Surabaya</strong>, where I spent years analyzing wave propagation, modeling earth systems, and
+                decoding signal noise under uncertainty.
+              </p>
+              <p>
+                That background gave me a distinct edge in software: I treat large distributed backend architectures as
+                complex physical systems where latency, signal loss, and concurrency race conditions must be carefully
+                bounded.
+              </p>
+              <p>
+                Over the past 7 years, I've built real-time fraud engines at <strong>Tokopedia</strong> (saving ~120M
+                IDR/month), streamlined document automation at <strong>EximBank</strong>, and launched insurance &amp;
+                developer documentation platforms at <strong>Grab</strong>.
+              </p>
+              <p>
+                When I'm not writing Golang or C#, I'm shooting 35mm film photography through <a
+                  href="https://xenosumedia.com" target="_blank" rel="noopener" class="inline-link-gold">Xenosumedia</a>
+                and coding privacy-first browser utilities.
+              </p>
+            </div>
+
+            <div class="about-metrics">
+              <div class="metric-card gold">
+                <div class="metric-value">7+ Yrs</div>
+                <div class="metric-label">Backend &amp; Fullstack</div>
+                <div class="metric-desc">Distributed microservices, concurrency &amp; APIs</div>
+              </div>
+
+              <div class="metric-card cyan">
+                <div class="metric-value">31,000</div>
+                <div class="metric-label">Ride Cover Plus Txns</div>
+                <div class="metric-desc">Onboarded in 2 weeks for Grab Philippines</div>
+              </div>
+
+              <div class="metric-card emerald">
+                <div class="metric-value">120M IDR</div>
+                <div class="metric-label">Monthly Fraud Savings</div>
+                <div class="metric-desc">Real-time Golang/Redis/Neo4j risk engine @ Tokopedia</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── SLIDE 3: WORK EXPERIENCE ─────────────────────── -->
+      <section class="slide" id="experience" data-index="2">
+        <div class="slide-content">
+          <div class="section-kicker">03. Impact &amp; Engineering</div>
+          <h2 class="slide-title">Where I've Shipped Systems</h2>
+
+          <div class="timeline-deck">
+
+            <!-- GRAB -->
+            <div class="timeline-card active-job persona-item eng">
+              <div class="job-header">
+                <div class="company-name-row">
+                  <svg width="22" height="22" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg"
+                    style="flex-shrink:0">
+                    <circle cx="128" cy="128" r="128" fill="#00B14F" />
+                    <path
+                      d="M128 60c-37.6 0-68 30.4-68 68 0 37.6 30.4 68 68 68s68-30.4 68-68c0-37.6-30.4-68-68-68zm0 108c-22.1 0-40-17.9-40-40s17.9-40 40-40 40 17.9 40 40-17.9 40-40 40z"
+                      fill="#fff" />
+                  </svg>
+                  <div>
+                    <h3 class="company">Grab <span class="tech-pill-sm">Current</span></h3>
+                    <div class="role">Software Engineer — Fullstack &amp; Backend</div>
+                  </div>
+                </div>
+                <div class="job-badge amber">Apr 2024 — Present · Jakarta</div>
+              </div>
+              <ul class="job-list">
+                <li><strong>Ride Cover Plus (PH Insurance):</strong> Led full engineering lifecycle to launch Grab's
+                  Ride Cover Plus in the Philippines, managing cross-team delivery and insurer APIs. Achieved
+                  <strong>~31k transactions in first 2 weeks</strong>.
+                </li>
+                <li><strong>Company-wide Tech Documentation Site:</strong> Founding engineer of Grab's technical
+                  documentation hub. Migrated docs to Hugo SSG format with fast AI search &amp; MCP integration.</li>
+                <li><strong>Content &amp; Dev Sync Automation:</strong> Built auto-sync workflow between content
+                  managers and frontend platforms, eliminating key translation review cycles.</li>
+                <li><strong>Tech Service Entity Catalog:</strong> Contributed to service relationship mapping, cost
+                  metrics, and API documentation catalog across engineering teams.</li>
+              </ul>
+            </div>
+
+            <!-- TOKOPEDIA -->
+            <div class="timeline-card persona-item eng">
+              <div class="job-header">
+                <div class="company-name-row">
+                  <svg width="22" height="22" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg"
+                    style="flex-shrink:0">
+                    <circle cx="128" cy="128" r="128" fill="#42B549" />
+                    <path
+                      d="M128 72c-4.4 0-8 3.6-8 8v48H72c-4.4 0-8 3.6-8 8s3.6 8 8 8h48v48c0 4.4 3.6 8 8 8s8-3.6 8-8v-48h48c4.4 0 8-3.6 8-8s-3.6-8-8-8h-48V80c0-4.4-3.6-8-8-8z"
+                      fill="#fff" />
+                  </svg>
+                  <div>
+                    <h3 class="company">Tokopedia</h3>
+                    <div class="role">Software Engineer — Backend (Account Security)</div>
+                  </div>
+                </div>
+                <div class="job-badge">Sep 2021 — Apr 2024 · Jakarta</div>
+              </div>
+              <ul class="job-list">
+                <li><strong>Real-Time Fraud Detection Engine:</strong> Built rule-based fraud detection pipeline using
+                  Golang, Redis, PostgreSQL, NSQ, and Neo4j graph database. Prevented system abuse, resulting in
+                  <strong>~120M IDR monthly savings</strong>.
+                </li>
+                <li><strong>Fraud Admin Console:</strong> Built ReactJS dashboard for risk analysts, reducing manual
+                  review time by <strong>90%</strong>.</li>
+                <li><strong>Incident Reporting Service:</strong> Developed incident aggregation service in Golang &amp;
+                  SMTP for benchmark MTTA/MTTR leadership reporting.</li>
+              </ul>
+            </div>
+
+            <!-- EXIMBANK -->
+            <div class="timeline-card persona-item eng">
+              <div class="job-header">
+                <div>
+                  <h3 class="company">EximBank <span class="sub-name">(Indonesia Export Import Bank)</span></h3>
+                  <div class="role">Software Engineer — Fullstack</div>
+                </div>
+                <div class="job-badge">Jun 2019 — Sep 2021 · Jakarta</div>
+              </div>
+              <ul class="job-list">
+                <li><strong>Paperless Document Workflow:</strong> Engineered approval and delegation system replacing
+                  physical document handoffs across bank divisions.</li>
+                <li><strong>EximBank x PLN Portal:</strong> Developed web application managing export/import insurance
+                  workflows between EximBank and PLN.</li>
+              </ul>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ── SLIDE 4: CAPABILITIES & STACK ────────────────── -->
+      <section class="slide" id="summary" data-index="3">
+        <div class="slide-content">
+          <div class="section-kicker">04. Engineering Capabilities</div>
+          <h2 class="slide-title">Core Competencies &amp; Tech Stack</h2>
+
+          <div class="summary-cards-grid">
+            <div class="summary-box">
+              <div class="box-icon amber">⚡</div>
+              <h3>High-Scale Microservices</h3>
+              <p>7+ years designing concurrent Golang &amp; C# backend services, Redis caching layers, and
+                high-throughput event queues.</p>
+            </div>
+
+            <div class="summary-box">
+              <div class="box-icon emerald">🛡️</div>
+              <h3>Fraud Risk Engineering</h3>
+              <p>Real-time transaction evaluation, rule engines, graph relationship mapping (Neo4j), and account
+                security defense.</p>
+            </div>
+
+            <div class="summary-box">
+              <div class="box-icon cyan">🛠️</div>
+              <h3>Developer Experience &amp; MCP</h3>
+              <p>Building company-wide Hugo documentation hubs, Model Context Protocol (MCP) integrations, and developer
+                workflow automation.</p>
+            </div>
+
+            <div class="summary-box">
+              <div class="box-icon purple">�</div>
+              <h3>Creative Media &amp; Web Tools</h3>
+              <p>Founder of Xenosumedia, building privacy-first client-side image processing tools and film photography
+                showcases.</p>
+            </div>
+          </div>
+
+          <!-- TECH STACK CATEGORIES -->
+          <div class="stack-section">
+            <h3 class="stack-heading code-font">$ stack --verbose</h3>
+            <div class="stack-grid">
+
+              <div class="stack-group">
+                <span class="stack-cat">Core Languages</span>
+                <div class="pill-list">
+                  <span class="pill gold">Golang</span>
+                  <span class="pill gold">C# / ASP.NET</span>
+                  <span class="pill gold">Python</span>
+                  <span class="pill">Java Spring</span>
+                  <span class="pill">JavaScript / Node.js</span>
+                  <span class="pill">SQL</span>
+                </div>
+              </div>
+
+              <div class="stack-group">
+                <span class="stack-cat">Databases &amp; Caching</span>
+                <div class="pill-list">
+                  <span class="pill emerald">Redis</span>
+                  <span class="pill emerald">PostgreSQL</span>
+                  <span class="pill">Neo4j (Graph DB)</span>
+                  <span class="pill">NSQ</span>
+                  <span class="pill">MySQL</span>
+                </div>
+              </div>
+
+              <div class="stack-group">
+                <span class="stack-cat">Cloud &amp; DevOps</span>
+                <div class="pill-list">
+                  <span class="pill cyan">Kubernetes</span>
+                  <span class="pill cyan">AWS</span>
+                  <span class="pill">GCP</span>
+                  <span class="pill">Docker</span>
+                  <span class="pill">Hugo SSG</span>
+                  <span class="pill">Git / CI/CD</span>
+                </div>
+              </div>
+
+              <div class="stack-group">
+                <span class="stack-cat">Frontend &amp; Tooling</span>
+                <div class="pill-list">
+                  <span class="pill">ReactJS</span>
+                  <span class="pill">AngularJS</span>
+                  <span class="pill">MCP Protocols</span>
+                  <span class="pill">HTML5 / CSS3</span>
+                  <span class="pill">PagerDuty API</span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── SLIDE 5: PROJECTS ────────────────────────────── -->
+      <section class="slide" id="projects" data-index="4">
+        <div class="slide-content">
+          <div class="section-kicker">05. Independent Work</div>
+          <h2 class="slide-title">Featured Projects &amp; Utilities</h2>
+
+          <div class="projects-deck">
+
+            <div class="project-deck-card persona-item photo">
+              <div class="project-card-header">
+                <span class="project-tag amber">Photography Platform</span>
+                <div class="project-links">
+                  <a href="https://xenosumedia.com" target="_blank" rel="noopener" class="project-btn gold">Live Site
+                    ↗</a>
+                  <a href="https://github.com/rizkiawanAldo/Xenosumedia" target="_blank" rel="noopener"
+                    class="project-btn secondary">GitHub</a>
+                </div>
+              </div>
+              <h3 class="project-title">Xenosumedia</h3>
+              <p class="project-description">
+                A custom photography gallery website designed from scratch for high-resolution photo presentation, fast
+                asset delivery, and editorial layout.
+              </p>
+            </div>
+
+            <div class="project-deck-card persona-item eng">
+              <div class="project-card-header">
+                <span class="project-tag emerald">Browser Utility</span>
+                <div class="project-links">
+                  <a href="https://rizkiawanaldo.github.io/image-reducer/" target="_blank" rel="noopener"
+                    class="project-btn emerald">Live Tool ↗</a>
+                  <a href="https://github.com/rizkiawanAldo/image-reducer" target="_blank" rel="noopener"
+                    class="project-btn secondary">GitHub</a>
+                </div>
+              </div>
+              <h3 class="project-title">Image Reducer</h3>
+              <p class="project-description">
+                Client-side privacy-first image compressor that reduces images down to &lt; 1 MB directly in the browser
+                with zero server uploads required.
+              </p>
+            </div>
+
+            <div class="project-deck-card persona-item eng">
+              <div class="project-card-header">
+                <span class="project-tag cyan">Windows Utility</span>
+                <div class="project-links">
+                  <a href="https://github.com/rizkiawanAldo/brightness-bridge" target="_blank" rel="noopener"
+                    class="project-btn cyan">GitHub Repo ↗</a>
+                </div>
+              </div>
+              <h3 class="project-title">Brightness Bridge</h3>
+              <p class="project-description">
+                An offline Windows system app designed to control external monitor brightness directly via system API
+                calls without third-party hardware switches.
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ── SLIDE 6: PHOTOGRAPHY ─────────────────────────── -->
+      <section class="slide" id="photography" data-index="5">
+        <div class="slide-content">
+          <div class="section-kicker">06. Visual Archive</div>
+          <h2 class="slide-title">Through My Lens — Xenosumedia</h2>
+          <p class="section-subdesc">Moments in film &amp; digital. Click photo to view camera EXIF details &amp;
+            high-res modal viewer.</p>
+
+          <div class="photo-gallery-grid">
+            <div class="photo-thumb EXIF-card" data-photo="0">
+              <img src="images/photography/XNS00038.jpg" alt="XNS00038" loading="lazy" />
+              <div class="photo-thumb-overlay">
+                <span class="exif-badge">Sony A7C</span>
+                <span class="photo-thumb-title">XNS00038</span>
+                <span class="photo-thumb-icon">🔍 View &amp; Preview</span>
+              </div>
+            </div>
+
+            <div class="photo-thumb EXIF-card" data-photo="1">
+              <img src="images/photography/XNS00112.jpg" alt="XNS00112" loading="lazy" />
+              <div class="photo-thumb-overlay">
+                <span class="exif-badge">Sony A7C</span>
+                <span class="photo-thumb-title">XNS00112</span>
+                <span class="photo-thumb-icon">🔍 View &amp; Preview</span>
+              </div>
+            </div>
+
+            <div class="photo-thumb EXIF-card" data-photo="2">
+              <img src="images/photography/XNS03231-Edit.jpg" alt="XNS03231" loading="lazy" />
+              <div class="photo-thumb-overlay">
+                <span class="exif-badge">Sony A7C</span>
+                <span class="photo-thumb-title">XNS03231 Edit</span>
+                <span class="photo-thumb-icon">🔍 View &amp; Preview</span>
+              </div>
+            </div>
+
+            <div class="photo-thumb EXIF-card" data-photo="3">
+              <img src="images/photography/XNS04133.jpg" alt="XNS04133" loading="lazy" />
+              <div class="photo-thumb-overlay">
+                <span class="exif-badge">Sony A7C</span>
+                <span class="photo-thumb-title">XNS04133</span>
+                <span class="photo-thumb-icon">🔍 View &amp; Preview</span>
+              </div>
+            </div>
+
+            <div class="photo-thumb EXIF-card" data-photo="4">
+              <img src="images/photography/XNS04939.jpg" alt="XNS04939" loading="lazy" />
+              <div class="photo-thumb-overlay">
+                <span class="exif-badge">Sony A7C</span>
+                <span class="photo-thumb-title">XNS04939</span>
+                <span class="photo-thumb-icon">🔍 View &amp; Preview</span>
+              </div>
+            </div>
+
+            <div class="photo-thumb EXIF-card" data-photo="5">
+              <img src="images/photography/XNS05865.jpg" alt="XNS05865" loading="lazy" />
+              <div class="photo-thumb-overlay">
+                <span class="exif-badge">Sony A7C</span>
+                <span class="photo-thumb-title">XNS05865</span>
+                <span class="photo-thumb-icon">🔍 View &amp; Preview</span>
+              </div>
+            </div>
+
+            <div class="photo-thumb EXIF-card" data-photo="6">
+              <img src="images/photography/XNS05945.jpg" alt="XNS05945" loading="lazy" />
+              <div class="photo-thumb-overlay">
+                <span class="exif-badge">Sony A7C</span>
+                <span class="photo-thumb-title">XNS05945</span>
+                <span class="photo-thumb-icon">🔍 View &amp; Preview</span>
+              </div>
+            </div>
+
+            <div class="photo-thumb EXIF-card" data-photo="7">
+              <img src="images/photography/XNS09247.jpg" alt="XNS09247" loading="lazy" />
+              <div class="photo-thumb-overlay">
+                <span class="exif-badge">Sony A7C</span>
+                <span class="photo-thumb-title">XNS09247</span>
+                <span class="photo-thumb-icon">🔍 View &amp; Preview</span>
+              </div>
+            </div>
+
+            <div class="photo-thumb EXIF-card" data-photo="8">
+              <img src="images/photography/XNS09252.jpg" alt="XNS09252" loading="lazy" />
+              <div class="photo-thumb-overlay">
+                <span class="exif-badge">Sony A7C</span>
+                <span class="photo-thumb-title">XNS09252</span>
+                <span class="photo-thumb-icon">🔍 View &amp; Preview</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="photo-cta-bar">
+            <a href="https://xenosumedia.com" target="_blank" rel="noopener" class="btn btn-primary gold">
+              Visit Xenosumedia Gallery ↗
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── SLIDE 7: CONTACT ─────────────────────────────── -->
+      <section class="slide" id="contact" data-index="6">
+        <div class="slide-content">
+          <div class="section-kicker">07. Connect</div>
+          <h2 class="slide-title">Let's Build &amp; Collaborate</h2>
+
+          <div class="contact-grid">
+            <div class="contact-details-col">
+              <p class="contact-intro">
+                Interested in high-throughput backend architecture, fraud detection systems, developer tools, or
+                photography? Feel free to drop me a message.
+              </p>
+
+              <div class="contact-links-list">
+                <a href="mailto:rizkiawan.aldo@gmail.com" class="contact-card">
+                  <span class="icon">✉️</span>
+                  <div>
+                    <div class="label">Email</div>
+                    <div class="val code-font">rizkiawan.aldo@gmail.com</div>
+                  </div>
+                </a>
+
+                <a href="https://www.linkedin.com/in/rizkiawanaldo" target="_blank" rel="noopener" class="contact-card">
+                  <span class="icon">💼</span>
+                  <div>
+                    <div class="label">LinkedIn</div>
+                    <div class="val">linkedin.com/in/rizkiawanaldo</div>
+                  </div>
+                </a>
+
+                <a href="https://github.com/rizkiawanAldo" target="_blank" rel="noopener" class="contact-card">
+                  <span class="icon">🐙</span>
+                  <div>
+                    <div class="label">GitHub</div>
+                    <div class="val">github.com/rizkiawanAldo</div>
+                  </div>
+                </a>
+
+                <a href="https://instagram.com/aldorizkiawan" target="_blank" rel="noopener" class="contact-card">
+                  <span class="icon">📸</span>
+                  <div>
+                    <div class="label">Instagram</div>
+                    <div class="val">@aldorizkiawan</div>
+                  </div>
+                </a>
+
+                <div class="contact-card">
+                  <span class="icon">📍</span>
+                  <div>
+                    <div class="label">Location</div>
+                    <div class="val">Jakarta, Indonesia</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="contact-form-col">
+              <form class="deck-contact-form" id="contact-form">
+                <div class="form-row">
+                  <label for="c-name">Name</label>
+                  <input type="text" id="c-name" name="name" placeholder="Your Name" required />
+                </div>
+                <div class="form-row">
+                  <label for="c-email">Email</label>
+                  <input type="email" id="c-email" name="email" placeholder="you@example.com" required />
+                </div>
+                <div class="form-row">
+                  <label for="c-msg">Message</label>
+                  <textarea id="c-msg" name="message" rows="4" placeholder="Hi Aldo, let me know about..."
+                    required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary form-btn">
+                  Send Message →
+                </button>
+                <p class="form-status" id="form-status-msg"></p>
+              </form>
+            </div>
+          </div>
+
+          <footer class="slide-footer">
+            <p>© 2026 Aldo Rizkiawan · Built with HTML, Custom CSS &amp; Vanilla JS</p>
+          </footer>
+        </div>
+      </section>
+
     </div>
-  </section>
+  </main>
 
-  <!-- ── Work Experience ─────────────────────────────────── -->
-  <section id="experience">
-    <div class="container">
-      <p class="section-label">Career</p>
-      <h2 class="section-title">Work Experience</h2>
-
-      <div class="timeline">
-
-        <!-- GRAB -->
-        <div class="timeline-item reveal" id="exp-grab">
-          <div class="timeline-meta">
-            <span class="timeline-date">Apr 2024<br>Present</span>
-          </div>
-          <div class="timeline-body">
-            <div class="company-name">Grab</div>
-            <p class="job-title">Software Engineer — Fullstack</p>
-            <p class="job-location">Jakarta, Indonesia</p>
-            <ul class="job-bullets">
-              <li>Led end-to-end launch of <strong>Ride Cover Plus</strong> in the Philippines — one of Grab's insurance
-                products. Managed the full engineering lifecycle, coordinated tasks for engineers inside and outside the
-                team, and managed stakeholders (product managers, data analysts, third-party insurers). The product
-                onboarded <strong>~31,000 new transactions within 2 weeks</strong> of launch.</li>
-              <li>Led creation of a new <strong>Technical Documents site</strong> for company-wide Grab documentation.
-                Migrated all docs to a simpler and more efficient format using Hugo as a static site generator. Handled
-                migration strategies, deployment, infrastructure, and network creation as the founding engineer. The hub
-                is now used daily across Grab with integrated MCP, fast AI search, and more.</li>
-              <li>Led an initiative to streamline workflows between the product, content, and engineering teams for
-                populating frontend content. Built a system that auto-syncs between platforms, reducing back-and-forth
-                discussion and review cycles across stakeholders.</li>
-              <li>Standardized content translation keys across platforms to reduce friction and confusion between
-                engineers and the content team.</li>
-              <li>Contributed to an <strong>entity cataloging hub</strong> for tech services across Grab, covering
-                service cost, ownership, API documentation, tech docs, and service-to-service relationship mapping.</li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- TOKOPEDIA -->
-        <div class="timeline-item reveal" id="exp-tokopedia">
-          <div class="timeline-meta">
-            <span class="timeline-date">Sep 2021<br>Apr 2024</span>
-          </div>
-          <div class="timeline-body">
-            <div class="company-name">Tokopedia</div>
-            <p class="job-title">Software Engineer — Backend</p>
-            <p class="job-location">Jakarta, Indonesia</p>
-            <ul class="job-bullets">
-              <li>Served in Risk Management as a key member of the <strong>Account Security Team</strong>, safeguarding
-                users from account takeover, external fraud, social engineering, system abuse, and unauthorized login.
-              </li>
-              <li>Conceptualized and implemented a <strong>real-time rule-based fraud detection system</strong> using
-                Golang, Redis, PostgreSQL, NSQ, and Neo4j to identify suspicious transactions. Leveraged concurrency and
-                caching mechanisms to analyze every order efficiently — resulting in <strong>~120 million IDR in monthly
-                  savings</strong> for Tokopedia users.</li>
-              <li>Developed a <strong>ReactJS dashboard</strong> for the fraud detection system, enabling the business
-                team to analyze applied rules and helping administrators filter false positives. Achieved a <strong>90%
-                  reduction in manual work time</strong> by consolidating all relevant data into a single seamless view.
-              </li>
-              <li>Designed and implemented an <strong>incident reporting service</strong> using Golang, Redis, and SMTP
-                that aggregates data from PagerDuty and the internal employee database. Processes metrics like
-                MTTA/MTTR, responsiveness, and resolutions for all teams across Tokopedia tribes — delivering weekly
-                summaries to organizational leaders to benchmark system health standards.</li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- EXIMBANK -->
-        <div class="timeline-item reveal" id="exp-eximbank">
-          <div class="timeline-meta">
-            <span class="timeline-date">Jun 2019<br>Sep 2021</span>
-          </div>
-          <div class="timeline-body">
-            <div class="company-name">EximBank</div>
-            <p class="job-title">Software Engineer — Fullstack</p>
-            <p class="job-location">Jakarta, Indonesia · Indonesia Export Import Bank</p>
-            <ul class="job-bullets">
-              <li>Developed a <strong>web application to streamline document handling, approval, and
-                  delegation</strong>, eliminating reliance on physical paperwork and significantly improving workflow
-                efficiency.</li>
-              <li>Designed and implemented a web application to facilitate <strong>export/import insurance
-                  processes</strong> between EximBank and PLN.</li>
-            </ul>
-          </div>
-        </div>
-
+  <!-- ── Bottom Dock Navigation ───────────────────────────── -->
+  <footer id="deck-dock">
+    <div class="dock-inner">
+      <div class="dock-shortcut-hint">
+        <span class="kbd">←</span> <span class="kbd">→</span> navigate slides &nbsp;·&nbsp; <span
+          class="kbd">Ctrl</span>+<span class="kbd">K</span> terminal
       </div>
-    </div>
-  </section>
 
-  <!-- ── Education ───────────────────────────────────────── -->
-  <section id="education">
-    <div class="container">
-      <p class="section-label">Background</p>
-      <h2 class="section-title">Education</h2>
-
-      <div class="edu-card reveal" id="edu-its">
-        <div class="edu-period">
-          <span>Sep 2014 — Sep 2018</span>
-        </div>
-        <div class="edu-details">
-          <h3>Institut Teknologi Sepuluh Nopember (ITS)</h3>
-          <p class="degree">Geophysics Engineering</p>
-          <p class="location">Surabaya, Indonesia</p>
-        </div>
+      <div class="dock-dots" id="dock-dots">
+        <button class="dot active" data-slide="0" title="Intro"></button>
+        <button class="dot" data-slide="1" title="About"></button>
+        <button class="dot" data-slide="2" title="Experience"></button>
+        <button class="dot" data-slide="3" title="Capabilities"></button>
+        <button class="dot" data-slide="4" title="Projects"></button>
+        <button class="dot" data-slide="5" title="Photography"></button>
+        <button class="dot" data-slide="6" title="Contact"></button>
       </div>
-    </div>
-  </section>
 
-  <!-- ── Projects ────────────────────────────────────────── -->
-  <section id="projects">
-    <div class="container">
-      <p class="section-label">Work</p>
-      <h2 class="section-title">Personal Projects</h2>
-
-      <div class="projects-list reveal-group">
-
-        <div class="project-card reveal" id="project-xenosu">
-          <div class="project-info">
-            <h3>Xenosu Media</h3>
-            <p>A personal photography portfolio website — designed and built from scratch with a clean gallery
-              experience and custom media management.</p>
-          </div>
-          <div class="project-links">
-            <a href="https://xenosumedia.com" target="_blank" rel="noopener" class="project-link"
-              id="proj-xenosu-live">Live Site ↗</a>
-            <a href="https://github.com/rizkiawanAldo/Xenosumedia" target="_blank" rel="noopener"
-              class="project-link secondary" id="proj-xenosu-repo">GitHub</a>
-          </div>
-        </div>
-
-        <div class="project-card reveal" id="project-image-reducer">
-          <div class="project-info">
-            <h3>Image Reducer</h3>
-            <p>An online tool for reducing any image size down to 1 MB — no server upload required. Reliable, fast, and
-              privacy-friendly by design.</p>
-          </div>
-          <div class="project-links">
-            <a href="https://rizkiawanaldo.github.io/image-reducer/" target="_blank" rel="noopener" class="project-link"
-              id="proj-reducer-live">Live Tool ↗</a>
-            <a href="https://github.com/rizkiawanAldo/image-reducer" target="_blank" rel="noopener"
-              class="project-link secondary" id="proj-reducer-repo">GitHub</a>
-          </div>
-        </div>
-
-        <div class="project-card reveal" id="project-brightness">
-          <div class="project-info">
-            <h3>Brightness Bridge</h3>
-            <p>An offline Windows tool to control external monitor brightness level directly from the system — no
-              third-party app or hardware adjustment needed.</p>
-          </div>
-          <div class="project-links">
-            <a href="https://github.com/rizkiawanAldo/brightness-bridge" target="_blank" rel="noopener"
-              class="project-link secondary" id="proj-brightness-repo">GitHub</a>
-          </div>
-        </div>
-
+      <div class="dock-controls">
+        <button id="prev-slide-btn" class="control-btn" title="Previous Slide (←)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M19 12H5M12 19l-7-7 7-7" />
+          </svg>
+        </button>
+        <button id="next-slide-btn" class="control-btn" title="Next Slide (→)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 12h14M12 5l7 7-7 7" />
+          </svg>
+        </button>
       </div>
-    </div>
-  </section>
-
-  <!-- ── Footer ──────────────────────────────────────────── -->
-  <footer>
-    <div class="container">
-      <p>Built with ❤️ by Aldo Rizkiawan &nbsp;·&nbsp;
-        <a href="https://github.com/rizkiawanAldo" target="_blank" rel="noopener">GitHub</a> &nbsp;·&nbsp;
-        <a href="https://www.linkedin.com/in/rizkiawanaldo" target="_blank" rel="noopener">LinkedIn</a>
-      </p>
     </div>
   </footer>
 
-  <script src="script.js"></script>
+  <!-- ── Photography Lightbox Modal with EXIF Details ──────── -->
+  <div id="lightbox-modal" class="lightbox">
+    <div class="lightbox-overlay" id="lightbox-overlay"></div>
+    <div class="lightbox-dialog">
+      <button class="lightbox-close" id="lightbox-close" title="Close (Esc)">×</button>
+      <div class="lightbox-body">
+        <img id="lightbox-img" src="" alt="Photo Preview" />
+        <div class="lightbox-info">
+          <div>
+            <span id="lightbox-title" class="lightbox-title"></span>
+            <div id="lightbox-exif" class="lightbox-exif-specs"></div>
+          </div>
+          <span id="lightbox-counter" class="lightbox-counter"></span>
+        </div>
+      </div>
+      <button id="lightbox-prev" class="lightbox-nav prev" title="Previous Photo">‹</button>
+      <button id="lightbox-next" class="lightbox-nav next" title="Next Photo">›</button>
+    </div>
+  </div>
+
+
+
+  <script src="script.js?v=2"></script>
 </body>
 
 </html>
