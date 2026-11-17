@@ -1,0 +1,370 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# MASTER CONTENT TEMPLATE — single source of truth for the portfolio deck.
+#
+# Edit this file to change any content on the site. No HTML edits required.
+#   • basics / skills / experience / projects / education follow the same schema
+#     as C:\CODE\resume-engine\master_experience.yaml, so this file can be
+#     dropped into resume-engine as-is (extra keys are ignored there).
+#   • Everything else (hero, about, capabilities, photography, contact, slides)
+#     is site-specific display content.
+#
+# Inline formatting supported in any text value:
+#   **bold**   *italic*   `code`   [link text](https://url)
+# ─────────────────────────────────────────────────────────────────────────────
+
+meta:
+  lang: "en"
+  title: "Aldo Rizkiawan — Backend Architect & Visual Creator"
+  description: "Personal portfolio & résumé of Aldo Rizkiawan. Full-Stack & Backend Software Engineer at Grab, Tokopedia, EximBank. Geophysics graduate & founder of Xenosumedia."
+  og_title: "Aldo Rizkiawan — Backend Architect & Visual Creator"
+  og_description: "Distributed Systems, Fraud Risk Engines, Developer Platforms & Photography."
+  favicon_emoji: "⚡"
+  footer: "© 2026 Aldo Rizkiawan · Built with HTML, Custom CSS & Vanilla JS"
+
+# ── resume-engine compatible ────────────────────────────────────────────────
+basics:
+  name: "Aldo Rizkiawan"
+  email: "rizkiawan.aldo@gmail.com"
+  phone: ""
+  location: "Jakarta, Indonesia"
+  linkedin: "linkedin.com/in/aldorizkiawan"
+  github: "github.com/rizkiawanAldo"
+  website: "aldorizkiawan.com"
+  instagram: "instagram.com/aldorizkiawan"
+  # site-only display fields
+  initials: "AR"
+  brand_tag: "Geophysics → Systems"
+  profile_image: "images/profile/DSC08937_optimized_1000.jpg"
+
+# ── Slide order & navigation labels ────────────────────────────────────────
+# id must be one of: intro, about, experience, summary, projects, photography, contact
+slides:
+  - id: "intro"
+    label: "Intro"
+  - id: "about"
+    label: "About"
+  - id: "experience"
+    label: "Experience"
+  - id: "summary"
+    label: "Capabilities"
+  - id: "projects"
+    label: "Projects"
+  - id: "photography"
+    label: "Photography"
+  - id: "contact"
+    label: "Contact"
+
+# ── Slide 1: Intro ─────────────────────────────────────────────────────────
+hero:
+  badge: "Software Engineer @ Grab · Jakarta, ID"
+  badge_accent: "amber"
+  headline: "Architecting resilient backend systems"
+  headline_accent: "& developer tools."
+  subtext: "I bridge physical systems thinking with high-throughput backend microservices, fraud risk engines, and developer platform tooling across Southeast Asia."
+  tags:
+    - "<Golang / C# / Python>"
+    - "🛡️ Real-Time Fraud Engine"
+    - "📷 Visuals @ Xenosumedia"
+  primary_cta:
+    label: "Explore Career & Work"
+    slide: "experience"
+  secondary_cta:
+    label: "GitHub ↗"
+    url: "https://github.com/rizkiawanAldo"
+
+# ── Slide 2: About ─────────────────────────────────────────────────────────
+about:
+  kicker: "02. Mindset & Journey"
+  title: "From Physical Signals to Data Streams"
+  signal_caption: "Seismic Wave Modeling → Real-Time Microservice Message Streams"
+  paragraphs:
+    - "I'm **Aldo Rizkiawan**. My engineering path began in **Geophysics Engineering at ITS Surabaya**, where I spent years analyzing wave propagation, modeling earth systems, and decoding signal noise under uncertainty."
+    - "That background gave me a distinct edge in software: I treat large distributed backend architectures as complex physical systems where latency, signal loss, and concurrency race conditions must be carefully bounded."
+    - "Over the past 7 years, I've built real-time fraud engines at **Tokopedia** (saving ~120M IDR/month), streamlined document automation at **EximBank**, and launched insurance & developer documentation platforms at **Grab**."
+    - "When I'm not writing Golang or C#, I'm shooting 35mm film photography through [Xenosumedia](https://xenosumedia.com) and coding privacy-first browser utilities."
+  metrics:
+    - accent: "gold"
+      value: "7+ Yrs"
+      label: "Backend & Fullstack"
+      desc: "Distributed microservices, concurrency & APIs"
+    - accent: "cyan"
+      value: "31,000"
+      label: "Ride Cover Plus Txns"
+      desc: "Onboarded in 2 weeks for Grab Philippines"
+    - accent: "emerald"
+      value: "120M IDR"
+      label: "Monthly Fraud Savings"
+      desc: "Real-time Golang/Redis/Neo4j risk engine @ Tokopedia"
+
+# ── resume-engine compatible ────────────────────────────────────────────────
+skills:
+  languages:
+    - "Golang"
+    - "Java"
+    - "Python"
+    - "TypeScript"
+    - "JavaScript"
+    - "SQL"
+    - "C#"
+  architecture_and_concepts:
+    - "Distributed Systems"
+    - "Microservices"
+    - "System Design"
+    - "REST"
+    - "gRPC"
+    - "TDD / Unit Testing"
+  cloud_devops_and_infra:
+    - "AWS (ECS, S3, Route 53)"
+    - "GCP"
+    - "Kubernetes"
+    - "Docker"
+    - "Terraform"
+    - "GitLab CI/CD"
+    - "GitHub Actions"
+  databases_and_messaging:
+    - "PostgreSQL"
+    - "Redis"
+    - "Neo4j"
+    - "NSQ"
+  frameworks_and_libraries:
+    - "Spring Boot"
+    - "ASP.NET"
+    - "ReactJS"
+    - "Node.js"
+    - "Hugo"
+
+# How the skills above are grouped on the "Capabilities" slide.
+# `key` points at a skills category; `accent` styles the pills.
+skills_display:
+  - key: "languages"
+    label: "Core Languages"
+    accent: "gold"
+  - key: "databases_and_messaging"
+    label: "Databases & Caching"
+    accent: "emerald"
+  - key: "cloud_devops_and_infra"
+    label: "Cloud & DevOps"
+    accent: "cyan"
+  - key: "frameworks_and_libraries"
+    label: "Frameworks & Tooling"
+    accent: ""
+
+# ── Slide 3: Experience (resume-engine compatible) ─────────────────────────
+experience:
+  - company: "Grab"
+    role: "Software Engineer (Fullstack Engineer)"
+    location: "Jakarta, Indonesia"
+    start_date: "Apr 2024"
+    end_date: "Present"
+    current: true
+    cli_alias: "grab"
+    logo_text: "G"
+    logo_color: "#00B14F"
+    badge_accent: "amber"
+    bullets:
+      - id: "grab_ride_cover"
+        title: "Ride Cover Plus (PH Insurance)"
+        text: "Led end-to-end launch of Ride Cover Plus in the Philippines, managing cross-team engineering (including mobile development and web view), execution, and external stakeholders (product managers, data analysts, third-party insurers); generated **~31,000 new transactions** within two weeks of launch."
+        tags: ["fullstack", "mobile", "webview", "cross-functional", "payments", "insurance", "launch"]
+      - id: "grab_tech_docs"
+        title: "Company-wide Tech Documentation Site"
+        text: "Architected Grab's centralized technical documentation platform using Hugo; designed migration strategies, custom pipelines (content validation, quality, deployment, indexing), and networking infrastructure, now serving **11,000+ pages** to ~900 daily active users with integrated MCP and AI search."
+        tags: ["hugo", "architecture", "ci-cd", "infra", "ai-search", "mcp", "developer-platform"]
+      - id: "grab_i18n_automation"
+        title: "Content & Dev Sync Automation"
+        text: "Built automation sync and standardized localized content translation keys across platform services, reducing friction between product/content teams and engineering."
+        tags: ["automation", "localization", "developer-tools", "platform"]
+      - id: "grab_idp_catalog"
+        title: "Tech Service Entity Catalog"
+        text: "Contributed to core internal developer platform services cataloging entity ownership, service costs, API schemas, tech docs, and inter-service dependencies."
+        tags: ["microservices", "developer-portal", "service-catalog", "api-schema"]
+
+  - company: "Tokopedia"
+    role: "Software Engineer (Backend Engineer)"
+    location: "Jakarta, Indonesia"
+    start_date: "Sep 2021"
+    end_date: "Apr 2024"
+    current: false
+    cli_alias: "tokopedia"
+    logo_text: "T"
+    logo_color: "#42B549"
+    bullets:
+      - id: "tokopedia_rule_engine"
+        title: "Real-Time Fraud Detection Engine"
+        text: "Architected and deployed a low-latency, real-time rule engine using Golang, Redis, PostgreSQL, NSQ, and Neo4j to evaluate incoming transactions and payments across 2M+ daily orders; saved users **~120M IDR monthly** through automated fraud mitigation."
+        tags: ["golang", "redis", "postgresql", "nsq", "neo4j", "fraud-detection", "high-throughput", "distributed-systems"]
+      - id: "tokopedia_ato_detection"
+        title: "Account Takeover (ATO) Detection"
+        text: "Built a real-time ATO detection system by analyzing suspicious behavioral patterns and high-risk session events, mitigating fraud attacks and safeguarding user accounts, saving around 2K USD of user funds."
+        tags: ["golang", "security", "anti-fraud", "real-time", "analytics"]
+      - id: "tokopedia_graph_service"
+        title: "Graph-as-a-Service"
+        text: "Managed and provisioned Graph-as-a-Service infrastructure with Neo4j and Golang for cross-team adoption."
+        tags: ["neo4j", "golang", "graph-database", "infrastructure", "platform"]
+      - id: "tokopedia_risk_dashboard"
+        title: "Fraud Admin Console"
+        text: "Built an internal risk analytics dashboard in ReactJS, allowing risk operations teams to evaluate rules and eliminate false positives, reducing manual investigation overhead by **90%**."
+        tags: ["reactjs", "frontend", "internal-tools", "analytics", "dashboard"]
+      - id: "tokopedia_incident_tracker"
+        title: "Incident Reporting Service"
+        text: "Engineered an incident tracking service with Golang and SMTP, aggregating MTTA, MTTR, and resolution metrics from PagerDuty and production databases to deliver executive-level weekly reliability reports."
+        tags: ["golang", "pagerduty", "smtp", "metrics", "reliability", "devops"]
+
+  - company: "EximBank"
+    sub_name: "Indonesia Export Import Bank"
+    role: "Full-Stack Software Engineer"
+    location: "Jakarta, Indonesia"
+    start_date: "Jun 2019"
+    end_date: "Sep 2021"
+    current: false
+    cli_alias: "eximbank"
+    badge_accent: ""
+    bullets:
+      - id: "eximbank_doc_management"
+        title: "Paperless Document Workflow"
+        text: "Engineered an internal document management and approval delegation platform with ASP.NET/SQL, replacing manual paper workflows with automated digital pipelines."
+        tags: ["asp.net", "sql", "fullstack", "digital-transformation", "workflow-automation"]
+      - id: "eximbank_trade_finance"
+        title: "EximBank x PLN Portal"
+        text: "Designed and delivered an enterprise web application facilitating bilateral export/import financing workflows between EximBank and PLN."
+        tags: ["enterprise", "trade-finance", "web-application", "sql", "banking"]
+
+# ── Slide 4: Capabilities ──────────────────────────────────────────────────
+summary:
+  kicker: "04. Engineering Capabilities"
+  title: "Core Competencies & Tech Stack"
+  stack_heading: "$ stack --verbose"
+  capabilities:
+    - icon: "⚡"
+      accent: "amber"
+      title: "High-Scale Microservices"
+      text: "7+ years designing concurrent Golang & C# backend services, Redis caching layers, and high-throughput event queues."
+    - icon: "🛡️"
+      accent: "emerald"
+      title: "Fraud Risk Engineering"
+      text: "Real-time transaction evaluation, rule engines, graph relationship mapping (Neo4j), and account security defense."
+    - icon: "🛠️"
+      accent: "cyan"
+      title: "Developer Experience & MCP"
+      text: "Building company-wide Hugo documentation hubs, Model Context Protocol (MCP) integrations, and developer workflow automation."
+    - icon: "🎞️"
+      accent: "purple"
+      title: "Creative Media & Web Tools"
+      text: "Founder of Xenosumedia, building privacy-first client-side image processing tools and film photography showcases."
+
+# ── Slide 5: Projects (resume-engine compatible + display extras) ──────────
+projects:
+  - name: "Xenosumedia"
+    role: "Founder"
+    url: "https://xenosumedia.com"
+    tag: "Photography Platform"
+    accent: "amber"
+    persona: "photo"
+    description: "A custom photography gallery website designed from scratch for high-resolution photo presentation, fast asset delivery, and editorial layout."
+    links:
+      - label: "Live Site ↗"
+        url: "https://xenosumedia.com"
+        style: "gold"
+      - label: "GitHub"
+        url: "https://github.com/rizkiawanAldo/Xenosumedia"
+        style: "secondary"
+    bullets:
+      - "Custom-built gallery platform for high-resolution photography with fast asset delivery."
+
+  - name: "Image Reducer"
+    role: "Creator"
+    url: "https://rizkiawanaldo.github.io/image-reducer/"
+    tag: "Browser Utility"
+    accent: "emerald"
+    persona: "eng"
+    description: "Client-side privacy-first image compressor that reduces images down to < 1 MB directly in the browser with zero server uploads required."
+    links:
+      - label: "Live Tool ↗"
+        url: "https://rizkiawanaldo.github.io/image-reducer/"
+        style: "emerald"
+      - label: "GitHub"
+        url: "https://github.com/rizkiawanAldo/image-reducer"
+        style: "secondary"
+    bullets:
+      - "Built a client-side browser utility to compress and resize image files under 1MB locally without transferring data to external servers."
+
+  - name: "Brightness Bridge"
+    role: "Creator"
+    url: "https://github.com/rizkiawanAldo/brightness-bridge"
+    tag: "Windows Utility"
+    accent: "cyan"
+    persona: "eng"
+    description: "An offline Windows system app designed to control external monitor brightness directly via system API calls without third-party hardware switches."
+    links:
+      - label: "GitHub Repo ↗"
+        url: "https://github.com/rizkiawanAldo/brightness-bridge"
+        style: "cyan"
+    bullets:
+      - "Developed an offline Windows utility to adjust external monitor brightness levels directly via keyboard shortcuts."
+
+# ── Slide 6: Photography ───────────────────────────────────────────────────
+photography:
+  kicker: "06. Visual Archive"
+  title: "Through My Lens — Xenosumedia"
+  description: "Moments in film & digital. Click photo to view camera EXIF details & high-res modal viewer."
+  camera: "Sony A7C"
+  cta:
+    label: "Visit Xenosumedia Gallery ↗"
+    url: "https://xenosumedia.com"
+  photos:
+    - src: "images/photography/XNS00038.jpg"
+      title: "XNS00038"
+    - src: "images/photography/XNS00112.jpg"
+      title: "XNS00112"
+    - src: "images/photography/XNS03231-Edit.jpg"
+      title: "XNS03231 Edit"
+    - src: "images/photography/XNS04133.jpg"
+      title: "XNS04133"
+    - src: "images/photography/XNS04939.jpg"
+      title: "XNS04939"
+    - src: "images/photography/XNS05865.jpg"
+      title: "XNS05865"
+    - src: "images/photography/XNS05945.jpg"
+      title: "XNS05945"
+    - src: "images/photography/XNS09247.jpg"
+      title: "XNS09247"
+    - src: "images/photography/XNS09252.jpg"
+      title: "XNS09252"
+
+# ── Slide 7: Contact ───────────────────────────────────────────────────────
+contact:
+  kicker: "07. Connect"
+  title: "Let's Build & Collaborate"
+  intro: "Interested in high-throughput backend architecture, fraud detection systems, developer tools, or photography? Feel free to drop me a message."
+  links:
+    - icon: "✉️"
+      label: "Email"
+      value: "rizkiawan.aldo@gmail.com"
+      href: "mailto:rizkiawan.aldo@gmail.com"
+      code: true
+    - icon: "💼"
+      label: "LinkedIn"
+      value: "linkedin.com/in/rizkiawanaldo"
+      href: "https://www.linkedin.com/in/rizkiawanaldo"
+      external: true
+    - icon: "🐙"
+      label: "GitHub"
+      value: "github.com/rizkiawanAldo"
+      href: "https://github.com/rizkiawanAldo"
+      external: true
+    - icon: "📸"
+      label: "Instagram"
+      value: "@aldorizkiawan"
+      href: "https://instagram.com/aldorizkiawan"
+      external: true
+    - icon: "📍"
+      label: "Location"
+      value: "Jakarta, Indonesia"
+
+# ── resume-engine compatible ────────────────────────────────────────────────
+education:
+  - institution: "Sepuluh Nopember Institute of Technology (ITS)"
+    location: "Surabaya, Indonesia"
+    degree: "Bachelor of Engineering, Geophysics Engineering"
+    start_date: "Sep 2014"
+    end_date: "Sep 2018"

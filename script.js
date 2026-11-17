@@ -1,15 +1,20 @@
 /* ============================================================
-   ALDO RIZKIAWAN — OBSIDIAN DECK & DEVELOPER CLI ENGINE
+   ALDO RIZKIAWAN — OBSIDIAN DECK ENGINE
+   Reads the rendered DOM (built from content/master.yaml by render.js)
+   and wires up navigation, theme, CLI and lightbox.
+   No content lives in this file — edit content/master.yaml instead.
    ============================================================ */
 
-document.addEventListener('DOMContentLoaded', () => {
+window.initDeck = function initDeck() {
+    'use strict';
+
+    const data = window.SITE_DATA || {};
 
     // ── Theme Toggle ──────────────────────────────────────────
     const themeToggle = document.getElementById('theme-toggle');
     const iconSun = document.getElementById('theme-icon-sun');
     const iconMoon = document.getElementById('theme-icon-moon');
 
-    // Retrieve saved theme or default to light
     const savedTheme = localStorage.getItem('theme') || 'light';
     document.body.setAttribute('data-theme', savedTheme);
     updateThemeIcons(savedTheme);
@@ -35,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // ── Intersection Observer for animations ─────────────────────────────────
+    // ── Slide engine ──────────────────────────────────────────
     const slides = Array.from(document.querySelectorAll('.slide'));
     const navItems = document.querySelectorAll('.nav-item');
     const dots = document.querySelectorAll('.dot');
@@ -47,23 +52,23 @@ document.addEventListener('DOMContentLoaded', () => {
     const totalSlides = slides.length;
     let currentSlide = 0;
 
-    const hashToSlide = {
-        '#intro': 0,
-        '#about': 1,
-        '#experience': 2,
-        '#summary': 3,
-        '#projects': 4,
-        '#photography': 5,
-        '#contact': 6
-    };
+    // Hash routes are derived from the slide ids in the YAML, so adding or
+    // reordering slides needs no JS changes.
+    const hashToSlide = {};
+    const slideToHash = [];
+    slides.forEach((slide, i) => {
+        hashToSlide[`#${slide.id}`] = i;
+        slideToHash[i] = `#${slide.id}`;
+    });
 
-    const slideToHash = ['#intro', '#about', '#experience', '#summary', '#projects', '#photography', '#contact'];
+    function slideIndexById(id) {
+        return slides.findIndex((slide) => slide.id === id);
+    }
 
     if (totalSlidesEl) {
         totalSlidesEl.textContent = String(totalSlides).padStart(2, '0');
     }
 
-    // ── Slide Engine ──────────────────────────────────────────
     function goToSlide(index, updateHash = true) {
         if (index < 0) index = 0;
         if (index >= totalSlides) index = totalSlides - 1;
@@ -83,13 +88,8 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        navItems.forEach((item, i) => {
-            item.classList.toggle('active', i === currentSlide);
-        });
-
-        dots.forEach((dot, i) => {
-            dot.classList.toggle('active', i === currentSlide);
-        });
+        navItems.forEach((item, i) => item.classList.toggle('active', i === currentSlide));
+        dots.forEach((dot, i) => dot.classList.toggle('active', i === currentSlide));
 
         if (currentSlideEl) {
             currentSlideEl.textContent = String(currentSlide + 1).padStart(2, '0');
@@ -103,7 +103,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Hash Routing
+    // Hash routing
     const initialHash = window.location.hash;
     if (initialHash && hashToSlide[initialHash] !== undefined) {
         goToSlide(hashToSlide[initialHash], false);
@@ -136,10 +136,11 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Keyboard Shortcuts
+    // Keyboard shortcuts
     document.addEventListener('keydown', (e) => {
         if (['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName)) return;
-        if (document.getElementById('lightbox-modal').classList.contains('open')) return;
+        const modal = document.getElementById('lightbox-modal');
+        if (modal && modal.classList.contains('open')) return;
 
         if (e.key === 'ArrowRight') {
             goToSlide(currentSlide + 1);
@@ -148,32 +149,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // ── Persona Switcher Filter ────────────────────────────────
-    const personaBtns = document.querySelectorAll('.persona-btn');
-    const personaItems = document.querySelectorAll('.persona-item');
-
-    personaBtns.forEach((btn) => {
-        btn.addEventListener('click', () => {
-            const persona = btn.getAttribute('data-persona');
-            personaBtns.forEach((b) => b.classList.remove('active'));
-            btn.classList.add('active');
-
-            personaItems.forEach((item) => {
-                if (persona === 'all') {
-                    item.style.opacity = '1';
-                    item.style.filter = 'none';
-                } else if (item.classList.contains(persona)) {
-                    item.style.opacity = '1';
-                    item.style.filter = 'none';
-                } else {
-                    item.style.opacity = '0.3';
-                    item.style.filter = 'grayscale(80%)';
-                }
-            });
-        });
-    });
-
-    // ── Developer CLI Terminal Modal ───────────────────────────
+    // ── Developer CLI Terminal (content read from the YAML) ────
     const cliModal = document.getElementById('cli-modal');
     const terminalTrigger = document.getElementById('terminal-trigger');
     const heroCliBtn = document.getElementById('hero-cli-btn');
@@ -184,12 +160,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const cliChips = document.querySelectorAll('.cli-chip');
 
     function openCli() {
-        if (cliModal) {
-            cliModal.classList.add('open');
-            setTimeout(() => {
-                if (cliInput) cliInput.focus();
-            }, 100);
-        }
+        if (!cliModal) return;
+        cliModal.classList.add('open');
+        setTimeout(() => {
+            if (cliInput) cliInput.focus();
+        }, 100);
     }
 
     function closeCli() {
@@ -201,7 +176,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (cliClose) cliClose.addEventListener('click', closeCli);
     if (cliOverlay) cliOverlay.addEventListener('click', closeCli);
 
-    // Global event delegation for any CLI trigger buttons
     document.addEventListener('click', (e) => {
         const cliBtn = e.target.closest('#terminal-trigger, #hero-cli-btn, .btn-terminal, .terminal-trigger-btn');
         if (cliBtn) {
@@ -210,9 +184,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Ctrl + K keyboard shortcut for terminal launch
     document.addEventListener('keydown', (e) => {
-        if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
+        if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k' && cliModal) {
             e.preventDefault();
             if (cliModal.classList.contains('open')) closeCli();
             else openCli();
@@ -228,83 +201,111 @@ document.addEventListener('DOMContentLoaded', () => {
         cliScreen.scrollTop = cliScreen.scrollHeight;
     }
 
+    const escapeCli = (value) => String(value == null ? '' : value)
+        .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+
+    const experienceList = Array.isArray(data.experience) ? data.experience : [];
+    const projectList = Array.isArray(data.projects) ? data.projects : [];
+    const skills = data.skills || {};
+    const skillsDisplay = Array.isArray(data.skills_display) ? data.skills_display : [];
+
+    function findExperience(command) {
+        return experienceList.find((job) => {
+            const alias = (job.cli_alias || '').toLowerCase();
+            const company = (job.company || '').toLowerCase();
+            return alias === command || company === command || company.startsWith(command);
+        });
+    }
+
+    function experienceReport(job) {
+        const lines = [
+            `[${escapeCli((job.company || '').toUpperCase())} HIGHLIGHTS]`,
+            `- Role: ${escapeCli(job.role)} | ${escapeCli(job.start_date)} - ${escapeCli(job.end_date)}`
+        ];
+        (job.bullets || []).forEach((bullet) => {
+            const label = bullet.title ? `${escapeCli(bullet.title)} — ` : '';
+            lines.push(`- ${label}${escapeCli(bullet.text)}`);
+        });
+        return lines.join('\n');
+    }
+
+    function stackReport() {
+        if (!skillsDisplay.length) {
+            return Object.keys(skills)
+                .map((key) => `${escapeCli(key)}: ${(skills[key] || []).map(escapeCli).join(', ')}`)
+                .join('\n');
+        }
+        return skillsDisplay.map((group) => {
+            const items = skills[group.key] || [];
+            return `${escapeCli(group.label)}: ${items.map(escapeCli).join(', ')}`;
+        }).filter(Boolean).join('\n');
+    }
+
+    function helpReport() {
+        const lines = ['Available commands:'];
+        experienceList.forEach((job) => {
+            const alias = job.cli_alias || (job.company || '').toLowerCase();
+            lines.push(`  <span class="cmd-res">${escapeCli(alias)}</span>  - ${escapeCli(job.company)} engineering highlights`);
+        });
+        lines.push('  <span class="cmd-res">stack</span>      - View tech stack pills');
+        lines.push('  <span class="cmd-res">projects</span>   - View featured projects');
+        lines.push('  <span class="cmd-res">photos</span>     - Jump to Photography slide');
+        lines.push('  <span class="cmd-res">contact</span>    - Jump to Contact slide');
+        lines.push('  <span class="cmd-res">clear</span>      - Clear terminal output');
+        return lines.join('\n');
+    }
+
     function processCommand(cmdStr) {
         const cmd = cmdStr.trim().toLowerCase();
         if (!cmd) return;
 
-        appendCliLine(`<span class="cli-prompt">aldo@system:~$</span> <span class="cmd-text">${cmdStr}</span>`);
+        appendCliLine(`<span class="cli-prompt">aldo@system:~$</span> <span class="cmd-text">${escapeCli(cmdStr)}</span>`);
 
-        switch (cmd) {
-            case 'help':
-                appendCliLine(`Available commands:
-  <span class="cmd-res">grab</span>       - View Grab engineering highlights & Ride Cover Plus
-  <span class="cmd-res">tokopedia</span>  - View Tokopedia Account Security & Golang fraud engine
-  <span class="cmd-res">eximbank</span>   - View EximBank document workflow app
-  <span class="cmd-res">stack</span>      - View tech stack pills
-  <span class="cmd-res">projects</span>   - View Xenosu Media & Image Reducer
-  <span class="cmd-res">photos</span>     - Jump to Photography slide (#5)
-  <span class="cmd-res">contact</span>    - Jump to Contact slide (#6)
-  <span class="cmd-res">clear</span>      - Clear terminal output`, 'muted');
-                break;
-
-            case 'grab':
-                appendCliLine(`[GRAB HIGHLIGHTS]
-- Role: Software Engineer (Fullstack & Backend) | Apr 2024 - Present
-- Launch: Ride Cover Plus in Philippines (~31k txns in 2 weeks)
-- Founding Engineer: Grab Technical Documentation Site (Hugo, MCP AI search)
-- Automation: Content-to-dev sync platform & Service Entity Catalog`, 'cmd-res');
-                break;
-
-            case 'tokopedia':
-                appendCliLine(`[TOKOPEDIA HIGHLIGHTS]
-- Role: Software Engineer (Backend - Account Security) | Sep 2021 - Apr 2024
-- Engine: Real-time fraud detection pipeline in Golang, Redis, Postgres, Neo4j
-- Savings: ~120 Million IDR saved monthly for Tokopedia users
-- Admin Console: ReactJS risk dashboard reducing manual work by 90%`, 'cmd-res');
-                break;
-
-            case 'eximbank':
-                appendCliLine(`[EXIMBANK HIGHLIGHTS]
-- Role: Software Engineer (Fullstack) | Jun 2019 - Sep 2021
-- Built enterprise paperless approval workflow & PLN export insurance portal`, 'cmd-res');
-                break;
-
-            case 'stack':
-                appendCliLine(`[TECH STACK]
-Languages: Golang, C#, Python, Java Spring, SQL
-Infra & DB: Redis, PostgreSQL, Neo4j, Kubernetes, AWS, Docker, Hugo, MCP`, 'cmd-res');
-                break;
-
-            case 'projects':
-                appendCliLine(`[FEATURED PROJECTS]
-1. Xenosu Media — Photography Portfolio Website
-2. Image Reducer — Privacy-first browser image compressor (<1 MB)
-3. Brightness Bridge — Windows monitor brightness utility`, 'cmd-res');
-                break;
-
-            case 'photos':
-            case 'photography':
-            case 'xenosu':
-                appendCliLine(`Navigating to Photography slide...`, 'cmd-res');
-                closeCli();
-                goToSlide(5);
-                break;
-
-            case 'contact':
-            case 'email':
-                appendCliLine(`Navigating to Contact slide...`, 'cmd-res');
-                closeCli();
-                goToSlide(6);
-                break;
-
-            case 'clear':
-                if (cliScreen) cliScreen.innerHTML = '';
-                break;
-
-            default:
-                appendCliLine(`command not found: ${cmdStr}. Type <span class="cmd-text">help</span> for commands.`, 'muted');
-                break;
+        if (cmd === 'help') {
+            appendCliLine(helpReport(), 'muted');
+            return;
         }
+
+        if (cmd === 'clear') {
+            if (cliScreen) cliScreen.innerHTML = '';
+            return;
+        }
+
+        if (cmd === 'stack') {
+            appendCliLine(`[TECH STACK]\n${stackReport()}`, 'cmd-res');
+            return;
+        }
+
+        if (cmd === 'projects') {
+            const lines = ['[FEATURED PROJECTS]'];
+            projectList.forEach((project, i) => {
+                lines.push(`${i + 1}. ${escapeCli(project.name)} — ${escapeCli(project.description)}`);
+            });
+            appendCliLine(lines.join('\n'), 'cmd-res');
+            return;
+        }
+
+        if (['photos', 'photography', 'xenosu', 'xenosumedia'].includes(cmd)) {
+            appendCliLine('Navigating to Photography slide...', 'cmd-res');
+            closeCli();
+            goToSlide(slideIndexById('photography'));
+            return;
+        }
+
+        if (['contact', 'email'].includes(cmd)) {
+            appendCliLine('Navigating to Contact slide...', 'cmd-res');
+            closeCli();
+            goToSlide(slideIndexById('contact'));
+            return;
+        }
+
+        const job = findExperience(cmd);
+        if (job) {
+            appendCliLine(experienceReport(job), 'cmd-res');
+            return;
+        }
+
+        appendCliLine(`command not found: ${escapeCli(cmdStr)}. Type <span class="cmd-text">help</span> for commands.`, 'muted');
     }
 
     if (cliInput) {
@@ -325,15 +326,16 @@ Infra & DB: Redis, PostgreSQL, Neo4j, Kubernetes, AWS, Docker, Hugo, MCP`, 'cmd-
     });
 
     // ── Photography Lightbox Modal ─────────────────────────────
-    // Build photo list entirely from the DOM — guaranteed to stay in sync
+    // Photo list is built from the DOM, which render.js fills from the YAML.
     function buildPhotoList() {
-        return Array.from(document.querySelectorAll('.photo-thumb[data-photo]')).map(thumb => {
+        const camera = (data.photography || {}).camera || 'Photography';
+        return Array.from(document.querySelectorAll('.photo-thumb[data-photo]')).map((thumb) => {
             const img = thumb.querySelector('img');
             const title = thumb.querySelector('.photo-thumb-title');
             return {
                 src: img ? img.src : '',
                 title: title ? title.textContent : '',
-                exif: '📷 Sony A7C · Xenosu Media'
+                exif: `📷 ${camera} · Xenosumedia`
             };
         });
     }
@@ -349,29 +351,26 @@ Infra & DB: Redis, PostgreSQL, Neo4j, Kubernetes, AWS, Docker, Hugo, MCP`, 'cmd-
     const lightboxPrev = document.getElementById('lightbox-prev');
     const lightboxNext = document.getElementById('lightbox-next');
 
+    function updateLightboxContent(photos) {
+        const list = photos || buildPhotoList();
+        const photo = list[currentPhotoIndex];
+        if (!photo || !lightboxImg) return;
+        lightboxImg.src = photo.src;
+        if (lightboxTitle) lightboxTitle.textContent = photo.title;
+        if (lightboxExif) lightboxExif.textContent = photo.exif;
+        if (lightboxCounter) lightboxCounter.textContent = `Photo ${currentPhotoIndex + 1} of ${list.length}`;
+    }
+
     function openLightbox(index) {
-        const photos = buildPhotoList();
-        currentPhotoIndex = Math.max(0, Math.min(index, photos.length - 1));
-        updateLightboxContent(photos);
-        modal.classList.add('open');
+        currentPhotoIndex = Math.max(0, Math.min(index, buildPhotoList().length - 1));
+        updateLightboxContent();
+        if (modal) modal.classList.add('open');
     }
 
     function closeLightbox() {
-        modal.classList.remove('open');
+        if (modal) modal.classList.remove('open');
     }
 
-    function updateLightboxContent(photos) {
-        if (!photos) photos = buildPhotoList();
-        const photo = photos[currentPhotoIndex];
-        if (photo && lightboxImg) {
-            lightboxImg.src = photo.src;
-            lightboxTitle.textContent = photo.title;
-            if (lightboxExif) lightboxExif.textContent = photo.exif;
-            if (lightboxCounter) lightboxCounter.textContent = `Photo ${currentPhotoIndex + 1} of ${photos.length}`;
-        }
-    }
-
-    // Click on any part of a thumbnail → open its image
     document.addEventListener('click', (e) => {
         const thumb = e.target.closest('.photo-thumb[data-photo]');
         if (thumb) {
@@ -383,37 +382,24 @@ Infra & DB: Redis, PostgreSQL, Neo4j, Kubernetes, AWS, Docker, Hugo, MCP`, 'cmd-
     if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
     if (lightboxOverlay) lightboxOverlay.addEventListener('click', closeLightbox);
 
-    if (lightboxPrev) {
-        lightboxPrev.addEventListener('click', () => {
-            const photos = buildPhotoList();
-            currentPhotoIndex = (currentPhotoIndex - 1 + photos.length) % photos.length;
-            updateLightboxContent(photos);
-        });
+    function stepLightbox(delta) {
+        const photos = buildPhotoList();
+        if (!photos.length) return;
+        currentPhotoIndex = (currentPhotoIndex + delta + photos.length) % photos.length;
+        updateLightboxContent(photos);
     }
 
-    if (lightboxNext) {
-        lightboxNext.addEventListener('click', () => {
-            const photos = buildPhotoList();
-            currentPhotoIndex = (currentPhotoIndex + 1) % photos.length;
-            updateLightboxContent(photos);
-        });
-    }
+    if (lightboxPrev) lightboxPrev.addEventListener('click', () => stepLightbox(-1));
+    if (lightboxNext) lightboxNext.addEventListener('click', () => stepLightbox(1));
 
     document.addEventListener('keydown', (e) => {
-        if (modal && modal.classList.contains('open')) {
-            if (e.key === 'Escape') closeLightbox();
-            if (e.key === 'ArrowLeft') {
-                currentPhotoIndex = (currentPhotoIndex - 1 + photos.length) % photos.length;
-                updateLightboxContent();
-            }
-            if (e.key === 'ArrowRight') {
-                currentPhotoIndex = (currentPhotoIndex + 1) % photos.length;
-                updateLightboxContent();
-            }
-        }
+        if (!modal || !modal.classList.contains('open')) return;
+        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowLeft') stepLightbox(-1);
+        if (e.key === 'ArrowRight') stepLightbox(1);
     });
 
-    // Contact Form Interception
+    // ── Contact form (client-side only) ────────────────────────
     const contactForm = document.getElementById('contact-form');
     const formStatus = document.getElementById('form-status-msg');
 
@@ -429,4 +415,4 @@ Infra & DB: Redis, PostgreSQL, Neo4j, Kubernetes, AWS, Docker, Hugo, MCP`, 'cmd-
             }
         });
     }
-});
+};
